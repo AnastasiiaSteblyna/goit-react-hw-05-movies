@@ -42,3 +42,10 @@ const findActors = async movieId => {
   );
   return response.data.cast;
 };
+
+const findReview = async movieId => {
+  const response = await axios.get(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`
+  );
+  return response.data.results;
+};
