@@ -180,6 +180,7 @@ img {
 /*
   * Стили компонента Buton (Load more)
   */
+
 .button {
   padding: 8px 16px;
   border-radius: 2px;
@@ -204,8 +205,4 @@ img {
 .button:hover,
 .button:focus {
   background-color: #303f9f;
-}
-
-.Loader {
-  margin: 0 auto;
 }
