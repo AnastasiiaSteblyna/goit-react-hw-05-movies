@@ -14,7 +14,6 @@ const Home = () => {
       try {
         const trendingFilms = await api.findTrendingMovies();
         setFilms(trendingFilms);
-        console.log(trendingFilms);
       } catch (error) {
         console.log(error);
       } finally {

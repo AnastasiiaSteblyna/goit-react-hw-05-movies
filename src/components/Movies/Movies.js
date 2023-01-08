@@ -3,6 +3,7 @@ import TrendingList from 'components/TrendingList/TrendingList';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import api from 'services/api';
+import css from '../../styles/Common.module.css';
 
 const Movies = () => {
   const [searchFilms, setSearchFilms] = useState([]);
@@ -21,8 +22,10 @@ const Movies = () => {
         setLoading(true);
         try {
           const searchFilms = await api.findByKeyword(queryMovie);
-          setSearchFilms(searchFilms);
-          console.log(searchFilms);
+          setSearchFilms(searchFilms.results);
+          if (searchFilms.results.length === 0) {
+            alert('Oh-no!');
+          }
         } catch (err) {
           console.log(err);
         } finally {
@@ -36,8 +39,16 @@ const Movies = () => {
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="query" autoFocus />
-        <button type="submit">Search</button>
+        <input
+          className={css.input}
+          type="text"
+          name="query"
+          placeholder="Movie..."
+          autoFocus
+        />
+        <button className={css.btn} type="submit">
+          Search
+        </button>
       </form>
       {loading && <Loader />}
       {searchFilms && <TrendingList films={searchFilms} />}
