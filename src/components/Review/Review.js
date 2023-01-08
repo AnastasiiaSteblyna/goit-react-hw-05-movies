@@ -5,8 +5,8 @@ import api from 'services/api';
 import css from '../../styles/Common.module.css';
 
 const Cast = () => {
-  const { movieId } = useParams();
-  const [review, setReview] = useState();
+  const { movieId } = useParams(null);
+  const [review, setReview] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -26,19 +26,26 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <>
       {loading && <Loader />}
       {review && (
-        <ul className={css.list}>
-          {review.map(r => (
-            <li className={css.list} key={r.id}>
-              <h3>Author: {r.author}</h3>
-              <p>{r.content}</p>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul className={css.list}>
+            {review.map(review => (
+              <li key={review.id}>
+                <h3>Author: {review.author}</h3>
+                <p>{review.content}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
-    </div>
+      {review.length === 0 && (
+        <h3 className={css.container}>
+          We don't have any reviews for this movie
+        </h3>
+      )}
+    </>
   );
 };
 
