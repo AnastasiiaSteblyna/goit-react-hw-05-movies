@@ -1,5 +1,6 @@
 import { Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import css from '../styles/Common.module.css';
 
 const Home = lazy(() => import('./Home/Home'));
 const Movies = lazy(() => import('./Movies/Movies'));
@@ -10,9 +11,13 @@ const Review = lazy(() => import('./Review/Review'));
 export const App = () => {
   return (
     <div>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
+      <nav className={css.nav}>
+        <NavLink className={css.link} to="/">
+          Home
+        </NavLink>
+        <NavLink className={css.link} to="/movies">
+          Movies
+        </NavLink>
       </nav>
 
       <Suspense fallback={<div>Loading...</div>}>

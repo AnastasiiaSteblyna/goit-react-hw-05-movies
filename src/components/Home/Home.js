@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from 'services/api';
 import Loader from '../Loader/Loader';
 import TrendingList from '../TrendingList/TrendingList';
+import css from '../../styles/Common.module.css';
 
 const Home = () => {
   const [films, setFilms] = useState([]);
@@ -25,7 +26,7 @@ const Home = () => {
 
   return (
     <main>
-      <h1>Trending today:</h1>
+      <h1 className={css.caption}>Trending today:</h1>
       {loading && <Loader />}
       {films && <TrendingList films={films} />}
     </main>
