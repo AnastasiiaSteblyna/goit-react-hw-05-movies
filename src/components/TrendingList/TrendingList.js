@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from '../../styles/Common.module.css';
+import PropTypes from 'prop-types';
 
 const TrendingList = ({ films }) => {
   const location = useLocation();
@@ -18,6 +19,10 @@ const TrendingList = ({ films }) => {
       ))}
     </ul>
   );
+};
+
+TrendingList.propTypes = {
+  films: PropTypes.array.isRequired,
 };
 
 export default TrendingList;
