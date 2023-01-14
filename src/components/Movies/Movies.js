@@ -22,7 +22,7 @@ const Movies = () => {
           const searchFilms = await api.findByKeyword(searchQuery);
           setSearchFilms(searchFilms.results);
           if (searchFilms.results.length === 0) {
-            alert('Oh-no!');
+            alert('Not found!');
           }
         } catch (err) {
           console.log(err);
@@ -40,20 +40,6 @@ const Movies = () => {
 
   return (
     <main>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          className={css.input}
-          type="text"
-          name="query"
-          value={queryMovie}
-          onChange={onChange}
-          placeholder="Movie..."
-          autoFocus
-        />
-        <button className={css.btn} type="submit">
-          Search
-        </button>
-      </form> */}
       <SearchMovies onSubmit={onSearchFormSubmit} searchParams={searchParams} />
       {loading && <Loader />}
       {searchFilms && <TrendingList films={searchFilms} />}

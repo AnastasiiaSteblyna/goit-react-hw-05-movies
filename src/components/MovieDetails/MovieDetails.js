@@ -29,7 +29,7 @@ const MovieDetails = () => {
     <>
       <Link to={location.state?.from ?? '/movies'}>
         <button className={css.btn_go} type="button">
-          {'<= Go back'}
+          {'Go back'}
         </button>
       </Link>
       {loading && <Loader />}

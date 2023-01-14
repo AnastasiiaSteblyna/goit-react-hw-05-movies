@@ -7,7 +7,10 @@ const Loader = () => {
       width="50"
       color="#d1d1d1"
       ariaLabel="circles-loading"
-      wrapperStyle={{ marginLeft: 'auto', marginRight: 'auto' }}
+      wrapperStyle={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}
       wrapperClass=""
       visible={true}
     />
