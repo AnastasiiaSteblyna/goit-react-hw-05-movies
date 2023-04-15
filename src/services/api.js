@@ -10,14 +10,9 @@ const findTrendingMovies = async () => {
   return response.data.results;
 };
 
-const findByKeyword = async (searchQuery, page) => {
+const findByKeyword = async searchQuery => {
   const response = await axios.get(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchQuery}&include_adult=false`,
-    {
-      params: {
-        page: `${page}`,
-      },
-    }
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchQuery}&include_adult=false`
   );
   return response.data;
 };
